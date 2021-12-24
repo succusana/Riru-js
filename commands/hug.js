@@ -8,11 +8,9 @@ module.exports = {
 	async execute(interaction) {
 		const hugtarget = interaction.options.getUser('target') + '';
 		const hugsender = interaction.user.id;
-		console.log(typeof hugself);
-		console.log(typeof hugtarget);
 		console.log(`${hugsender} hugs ${hugtarget}`);
 		if (hugtarget === clientId) {
-			await interaction.reply('Wait-!\n*Riru accepts the hug, hugging back gently.*');
+			await interaction.reply('Wait-!\n*Riru accepts the hug, blushing a fair bit but hugging back gently.*');
 		}
 		else {
 			console.log(`Target is ${hugtarget}, not <@923637342219157564>.`);
