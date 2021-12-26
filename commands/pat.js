@@ -33,7 +33,7 @@ module.exports = {
 			console.log(`Target is ${patTarget}, not <@923637342219157564>.`);
 			const patEmbed = new MessageEmbed()
 				.setColor('#8F3BCB')
-				.setDescription(`<@${patSender}> hugs <@${patTarget}>!`)
+				.setDescription(`<@${patSender}> pats <@${patTarget}>!`)
 				.setImage(`${chosenPat}`);
 
 			await interaction.reply({ embeds: [patEmbed] });
