@@ -15,7 +15,7 @@ const rest = new REST({ version: '9' }).setToken(token);
 
 rest.put(
 	Routes.applicationGuildCommands(clientId, guildId),
-	{ },
+	{ body: '' },
 )
-	.then(() => console.log(`Successfully removed application commands for ${guildId}.`))
+	.then(() => console.log(`Successfully removed application commands for ${guildId}. To readd, run deploy-commands.js.`))
 	.catch(console.error);
