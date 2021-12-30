@@ -30,7 +30,6 @@ module.exports = {
 			await interaction.reply({ embeds: [patEmbed] });
 		}
 		else {
-			console.log(`Target is ${patTarget}, not <@923637342219157564>.`);
 			const patEmbed = new MessageEmbed()
 				.setColor('#8F3BCB')
 				.setDescription(`<@${patSender}> pats <@${patTarget}>!`)

@@ -30,7 +30,6 @@ module.exports = {
 			await interaction.reply({ embeds: [kissEmbed] });
 		}
 		else {
-			console.log(`Target is ${kissTarget}, not <@923637342219157564>.`);
 			const kissEmbed = new MessageEmbed()
 				.setColor('#8F3BCB')
 				.setDescription(`<@${kissSender}> kisses <@${kissTarget}>!`)

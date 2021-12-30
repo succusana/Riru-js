@@ -29,7 +29,6 @@ module.exports = {
 			await interaction.reply({ embeds: [makeoEmbed] });
 		}
 		else {
-			console.log(`Target is ${makeoTarget}, not <@923637342219157564>.`);
 			const makeoEmbed = new MessageEmbed()
 				.setColor('#8F3BCB')
 				.setDescription(`<@${makeoSender}> makes out with <@${makeoTarget}>...? Lewd!`)
