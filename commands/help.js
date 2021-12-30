@@ -11,7 +11,6 @@ module.exports = {
 			.addChoice('Interaction', 'page_interaction')
 			.addChoice('Misc', 'page_misc')),
 
-
 	async execute(interaction) {
 		const pageChoice = interaction.options.getString('page');
 		if (pageChoice === 'page_interaction') {
