@@ -31,7 +31,6 @@ module.exports = {
 			await interaction.reply({ embeds: [hugEmbed] });
 		}
 		else {
-			console.log(`Target is ${hugTarget}, not <@923637342219157564>.`);
 			const hugEmbed = new MessageEmbed()
 				.setColor('#8F3BCB')
 				.setDescription(`<@${hugSender}> hugs <@${hugTarget}>!`)
