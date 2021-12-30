@@ -24,6 +24,7 @@ module.exports = {
 					{ name: '/makeout', value: 'Kiss someone, but with more *passion.*' },
 					{ name: '/pat', value: 'Pat someone!' },
 					{ name: '/pout', value: 'Pout!' },
+					{ name: '/smug', value: 'Get smug!' },
 				);
 			await interaction.reply({ embeds: [helpEmbed] });
 		}
@@ -40,7 +41,7 @@ module.exports = {
 			await interaction.reply({ embeds: [helpEmbed] });
 		}
 		else {
-			console.log('Help command was sent through without a parameter. WHAT THE FUCK DID YOU DO.')
+			console.log('Help command was sent through without a parameter. WHAT THE FUCK DID YOU DO.');
 		}
 	},
 };
