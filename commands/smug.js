@@ -14,7 +14,7 @@ module.exports = {
 			'https://cdn.discordapp.com/attachments/926208444166459483/926209358172422214/unknown_4.gif',
 			'https://cdn.discordapp.com/attachments/926208444166459483/926209358885433384/unknown_3.gif',
 			'https://cdn.discordapp.com/attachments/926208444166459483/926209359359406211/unknown_2.gif',
-			'https://cdn.discordapp.com/attachments/926208444166459483/926209359703318599/unknown_1.gif',
+			'https://cdn.discordapp.com/attachments/926208444166459483/926564174497198111/unknown_1.gif',
 			'https://cdn.discordapp.com/attachments/926208444166459483/926209360093397062/6a1dd77b-d882-4f94-a14a-5a6ef4cc52e5.gif',
 		];
 		const chosenSmug = smugFiles[Math.floor(Math.random() * smugFiles.length)] ;
