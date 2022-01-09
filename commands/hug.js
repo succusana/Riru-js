@@ -26,6 +26,7 @@ module.exports = {
 		if (hugTarget === clientId) {
 			const hugEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
+				.setTitle('Riru gets hugged!')
 				.setDescription('Wait-!\n*Riru accepts the hug, blushing a fair bit but hugging back gently.*')
 				.setImage(`${selfHug}`);
 			await interaction.reply({ embeds: [hugEmbed] });

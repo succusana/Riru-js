@@ -33,6 +33,7 @@ module.exports = {
 			if (poutTarget === clientId) {
 				const poutEmbed = new MessageEmbed()
 					.setColor('#FFC0CB')
+					.setTitle('You pout at Riru!')
 					.setDescription('Wait, what are you pouting at me for? Did I say something?')
 					.setImage(`${selfPout}`);
 

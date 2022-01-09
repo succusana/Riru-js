@@ -25,6 +25,7 @@ module.exports = {
 		if (kissTarget === clientId) {
 			const kissEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
+				.setTitle('Riru gets kissed!')
 				.setDescription('Mmh~?!')
 				.setImage(`${selfKiss}`);
 			await interaction.reply({ embeds: [kissEmbed] });

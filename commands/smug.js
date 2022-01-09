@@ -34,6 +34,7 @@ module.exports = {
 			if (smugTarget === clientId) {
 				const smugEmbed = new MessageEmbed()
 					.setColor('#FFC0CB')
+					.setTitle('You get smug at Riru!')
 					.setDescription('Don\'t look at me like that! Uuuuu...')
 					.setImage(`${selfSmug}`);
 

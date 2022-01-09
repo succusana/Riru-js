@@ -25,6 +25,7 @@ module.exports = {
 		if (patTarget === clientId) {
 			const patEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
+				.setTitle('Riru gets patted!')
 				.setDescription('You\'re patting me instead...?\n*Riru blushes but leans into the pat, letting you rub her soft hair for a bit.*')
 				.setImage(`${selfPat}`);
 			await interaction.reply({ embeds: [patEmbed] });

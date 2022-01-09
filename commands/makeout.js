@@ -24,6 +24,7 @@ module.exports = {
 		if (makeoTarget === clientId) {
 			const makeoEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
+				.setTitle('You attempt to make out with Riru, but...')
 				.setDescription('Wait, you expect me to do *that?*')
 				.setImage(`${selfMakeO}`);
 			await interaction.reply({ embeds: [makeoEmbed] });
