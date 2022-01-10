@@ -18,6 +18,7 @@ module.exports = {
 				.setTitle('Interaction Commands:')
 				.setColor('#90ee90')
 				.addFields(
+					{ name: '/bite', value: 'Bite someone!' },
 					{ name: '/hug', value: 'Hug someone!' },
 					{ name: '/kiss', value: 'Kiss someone!' },
 					{ name: '/makeout', value: 'Kiss someone, but with more *passion.*' },
