@@ -14,7 +14,6 @@ module.exports = {
 			'https://cdn.discordapp.com/attachments/924373854044946433/924373913511813150/hug1.gif',
 			'https://cdn.discordapp.com/attachments/924373854044946433/924373913016893440/hug2.gif',
 			'https://cdn.discordapp.com/attachments/924373854044946433/924373912375148604/hug3.gif',
-			'https://cdn.discordapp.com/attachments/924373854044946433/924373912098316348/hug4.gif',
 			'https://cdn.discordapp.com/attachments/924373854044946433/924373911800533112/hug5.gif',
 			'https://cdn.discordapp.com/attachments/924373854044946433/924373911439814726/hug6.gif',
 		];

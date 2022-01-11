@@ -19,6 +19,8 @@ module.exports = {
 				.setColor('#90ee90')
 				.addFields(
 					{ name: '/bite', value: 'Bite someone!' },
+					{ name: '/bonk', value: 'Bonk somebody!' },
+					{ name: '/cuddle', value: 'Cuddle someone!' },
 					{ name: '/hug', value: 'Hug someone!' },
 					{ name: '/kiss', value: 'Kiss someone!' },
 					{ name: '/makeout', value: 'Kiss someone, but with more *passion.*' },
