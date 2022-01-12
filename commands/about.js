@@ -10,7 +10,7 @@ module.exports = {
 			.setColor('#FFC0CB')
 			.setTitle('Riru')
 			.setAuthor('By Sana#2283')
-			.setThumbnail('https://cdn.discordapp.com/attachments/626416992642924577/923669123387490384/ari.png')
+			.setThumbnail('https://cdn.discordapp.com/attachments/924613221627854909/930915390639444018/riru.png')
 			.setURL('https://github.com/succusana/Riru-js')
 			.setDescription('Riru is a Discord bot specialising in interaction commands.');
 
