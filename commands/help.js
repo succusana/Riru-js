@@ -26,6 +26,7 @@ module.exports = {
 					{ name: '/kiss', value: 'Kiss someone!' },
 					{ name: '/makeout', value: 'Kiss someone, but with more *passion.*' },
 					{ name: '/pat', value: 'Pat someone!' },
+					{ name: '/pounce', value: 'Pounce on someone!' },
 					{ name: '/pout', value: 'Pout!' },
 					{ name: '/smug', value: 'Get smug!' },
 				);
