@@ -17,6 +17,7 @@ module.exports = {
 			const helpEmbed = new MessageEmbed()
 				.setTitle('Interaction Commands:')
 				.setColor('#90ee90')
+				// This isn't a good idea, and should probably be dynamically generated.
 				.addFields(
 					{ name: '/bite', value: 'Bite someone!' },
 					{ name: '/bonk', value: 'Bonk somebody!' },
