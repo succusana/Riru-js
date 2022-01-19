@@ -40,7 +40,7 @@ module.exports = {
 				.addFields(
 					{ name: '/about', value: 'Tells you about Riru.' },
 					{ name: '/invite', value: 'Invite Riru to your server!' },
-					{ name: '/ping', value: 'Ping Riru!' },
+					{ name: '/hello', value: 'Say Hi to Riru!' },
 					{ name: '/say', value: 'Make Riru say something!' },
 				);
 			await interaction.reply({ embeds: [helpEmbed] });
