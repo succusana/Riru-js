@@ -19,6 +19,7 @@ module.exports = {
 				.setColor('#90ee90')
 				// This isn't a good idea, and should probably be dynamically generated.
 				.addFields(
+					{ name: '/boop', value: 'Boop somebody!' },
 					{ name: '/bite', value: 'Bite someone!' },
 					{ name: '/bonk', value: 'Bonk somebody!' },
 					{ name: '/cuddle', value: 'Cuddle someone!' },
