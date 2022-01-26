@@ -6,7 +6,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('hug')
 		.setDescription('Hug someone!')
-		.addUserOption(option => option.setName('target') .setDescription('Who to hug') .setRequired(true)),
+		.addUserOption(option => option.setName('target') .setDescription('Who to hug') .setRequired(true))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the user?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -22,6 +28,10 @@ module.exports = {
 		// Preparing target and sender for message.
 		const hugTarget = interaction.options.getUser('target') + '';
 		const hugSender = interaction.user.id;
+		// Mentioning target if requested.
+		const pingOption = interaction.options.getString('mention');
+
+		// Preparing and sending embed.
 		if (hugTarget === clientId) {
 			const hugEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
@@ -35,8 +45,15 @@ module.exports = {
 				.setColor('#8F3BCB')
 				.setDescription(`<@${hugSender}> hugs <@${hugTarget}>!`)
 				.setImage(`${chosenHug}`);
+			if (pingOption == 'yes') {
+				await interaction.reply(`<@${hugSender}> hugs <@${hugTarget}>!`);
+				await interaction.editReply('­  ­­');
+				await interaction.editReply({ embeds: [hugEmbed] });
+			}
+			else {
+				await interaction.reply({ embeds: [hugEmbed] });
+			}
 
-			await interaction.reply({ embeds: [hugEmbed] });
 		}
 	},
 };

@@ -6,8 +6,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('cuddle')
 		.setDescription('Cuddle someone!')
-		.addUserOption(option => option.setName('target') .setDescription('Who to cuddle') .setRequired(true)),
-
+		.addUserOption(option => option.setName('target') .setDescription('Who to cuddle') .setRequired(true))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the user?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 	async execute(interaction) {
 		// Choose random gif to add to reply.
 		const cuddleFiles = [
@@ -23,6 +28,8 @@ module.exports = {
 		// Preparing target and sender for message.
 		const cuddleTarget = interaction.options.getUser('target') + '';
 		const cuddleSender = interaction.user.id;
+		const pingOption = interaction.options.getString('mention');
+
 		if (cuddleTarget === clientId) {
 			const cuddleEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
@@ -36,8 +43,14 @@ module.exports = {
 				.setColor('#8F3BCB')
 				.setDescription(`<@${cuddleSender}> cuddles <@${cuddleTarget}>!`)
 				.setImage(`${chosenCuddle}`);
-
-			await interaction.reply({ embeds: [cuddleEmbed] });
+			if (pingOption == 'yes') {
+				await interaction.reply(`<@${cuddleSender}> cuddles <@${cuddleTarget}>!`);
+				await interaction.editReply('­  ­­');
+				await interaction.editReply({ embeds: [cuddleEmbed] });
+			}
+			else {
+				await interaction.reply({ embeds: [cuddleEmbed] });
+			}
 		}
 	},
 };

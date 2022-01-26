@@ -6,7 +6,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('bonk')
 		.setDescription('Bonk someone!')
-		.addUserOption(option => option.setName('target') .setDescription('Who to bonk') .setRequired(true)),
+		.addUserOption(option => option.setName('target') .setDescription('Who to bonk') .setRequired(true))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the user?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -22,6 +28,8 @@ module.exports = {
 		// Preparing target and sender for message.
 		const bonkTarget = interaction.options.getUser('target') + '';
 		const bonkSender = interaction.user.id;
+		const pingOption = interaction.options.getString('mention');
+
 		if (bonkTarget === clientId) {
 			const bonkEmbed = new MessageEmbed()
 				.setColor('#FF0000')
@@ -35,8 +43,14 @@ module.exports = {
 				.setColor('#8F3BCB')
 				.setDescription(`<@${bonkSender}> bonks <@${bonkTarget}>!`)
 				.setImage(`${chosenBonk}`);
-
-			await interaction.reply({ embeds: [bonkEmbed] });
+			if (pingOption == 'yes') {
+				await interaction.reply(`<@${bonkSender}> bonks <@${bonkTarget}>!`);
+				await interaction.editReply('­  ­­');
+				await interaction.editReply({ embeds: [bonkEmbed] });
+			}
+			else {
+				await interaction.reply({ embeds: [bonkEmbed] });
+			}
 		}
 	},
 };

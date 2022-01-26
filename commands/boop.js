@@ -6,7 +6,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('boop')
 		.setDescription('Boop someone!')
-		.addUserOption(option => option.setName('target') .setDescription('Who to boop') .setRequired(true)),
+		.addUserOption(option => option.setName('target') .setDescription('Who to boop') .setRequired(true))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the user?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -23,6 +29,8 @@ module.exports = {
 		// Preparing target and sender for message.
 		const boopTarget = interaction.options.getUser('target') + '';
 		const boopSender = interaction.user.id;
+		const pingOption = interaction.options.getString('mention');
+
 		if (boopTarget === clientId) {
 			const boopEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
@@ -36,8 +44,14 @@ module.exports = {
 				.setColor('#8F3BCB')
 				.setDescription(`<@${boopSender}> boops <@${boopTarget}>!`)
 				.setImage(`${chosenBoop}`);
-
-			await interaction.reply({ embeds: [boopEmbed] });
+			if (pingOption == 'yes') {
+				await interaction.reply(`<@${boopSender}> boops <@${boopTarget}>!`);
+				await interaction.editReply('­  ­­');
+				await interaction.editReply({ embeds: [boopEmbed] });
+			}
+			else {
+				await interaction.reply({ embeds: [boopEmbed] });
+			}
 		}
 	},
 };

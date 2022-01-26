@@ -6,8 +6,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('kiss')
 		.setDescription('Kiss someone!')
-		.addUserOption(option => option.setName('target') .setDescription('Who to kiss') .setRequired(true)),
-
+		.addUserOption(option => option.setName('target') .setDescription('Who to kiss') .setRequired(true))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the user?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 	async execute(interaction) {
 		// Choose random gif to add to reply.
 		const kissFiles = [
@@ -22,6 +27,8 @@ module.exports = {
 		// Preparing target and sender for message.
 		const kissTarget = interaction.options.getUser('target') + '';
 		const kissSender = interaction.user.id;
+		const pingOption = interaction.options.getString('mention');
+
 		if (kissTarget === clientId) {
 			const kissEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
@@ -35,8 +42,14 @@ module.exports = {
 				.setColor('#8F3BCB')
 				.setDescription(`<@${kissSender}> kisses <@${kissTarget}>!`)
 				.setImage(`${chosenKiss}`);
-
-			await interaction.reply({ embeds: [kissEmbed] });
+			if (pingOption == 'yes') {
+				await interaction.reply(`<@${kissSender}> kisses <@${kissTarget}>!`);
+				await interaction.editReply('­  ­­');
+				await interaction.editReply({ embeds: [kissEmbed] });
+			}
+			else {
+				await interaction.reply({ embeds: [kissEmbed] });
+			}
 		}
 	},
 };

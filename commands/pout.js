@@ -6,7 +6,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('pout')
 		.setDescription('Pout!')
-		.addUserOption(option => option.setName('target') .setDescription('Who to pout at') .setRequired(false)),
+		.addUserOption(option => option.setName('target') .setDescription('Who to pout at') .setRequired(false))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the user?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -18,6 +24,8 @@ module.exports = {
 		];
 		const chosenPout = poutFiles[Math.floor(Math.random() * poutFiles.length)] ;
 		const selfPout = 'https://cdn.discordapp.com/attachments/926186290163093594/926186391329714226/unknown_4.gif';
+		const pingOption = interaction.options.getString('mention');
+
 		// Preparing target and sender for message.
 		const poutSender = interaction.user.id;
 		if (interaction.options.getUser('target') === null) {
@@ -44,8 +52,14 @@ module.exports = {
 					.setColor('#8F3BCB')
 					.setDescription(`<@${poutSender}> pouts at <@${poutTarget}>!`)
 					.setImage(`${chosenPout}`);
-
-				await interaction.reply({ embeds: [poutEmbed] });
+				if (pingOption == 'yes') {
+					await interaction.reply(`<@${poutSender}> pouts at <@${poutTarget}>!`);
+					await interaction.editReply('­  ­­');
+					await interaction.editReply({ embeds: [poutEmbed] });
+				}
+				else {
+					await interaction.reply({ embeds: [poutEmbed] });
+				}
 			}
 		}
 	},

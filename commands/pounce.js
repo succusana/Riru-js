@@ -6,7 +6,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('pounce')
 		.setDescription('Pounce on someone!')
-		.addUserOption(option => option.setName('target') .setDescription('Who to pounce on') .setRequired(true)),
+		.addUserOption(option => option.setName('target') .setDescription('Who to pounce on') .setRequired(true))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the user?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -20,6 +26,8 @@ module.exports = {
 		// Preparing target and sender for message.
 		const pounceTarget = interaction.options.getUser('target') + '';
 		const pounceSender = interaction.user.id;
+		const pingOption = interaction.options.getString('mention');
+
 		if (pounceTarget === clientId) {
 			const pounceEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
@@ -33,8 +41,14 @@ module.exports = {
 				.setColor('#8F3BCB')
 				.setDescription(`<@${pounceSender}> pounces on <@${pounceTarget}>!`)
 				.setImage(`${chosenPounce}`);
-
-			await interaction.reply({ embeds: [pounceEmbed] });
+			if (pingOption == 'yes') {
+				await interaction.reply(`<@${pounceSender}> pounces <@${pounceTarget}>!`);
+				await interaction.editReply('­  ­­');
+				await interaction.editReply({ embeds: [pounceEmbed] });
+			}
+			else {
+				await interaction.reply({ embeds: [pounceEmbed] });
+			}
 		}
 	},
 };

@@ -6,7 +6,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('pat')
 		.setDescription('Pat someone!')
-		.addUserOption(option => option.setName('target') .setDescription('Who to pat') .setRequired(true)),
+		.addUserOption(option => option.setName('target') .setDescription('Who to pat') .setRequired(true))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the user?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -22,6 +28,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const patTarget = interaction.options.getUser('target') + '';
 		const patSender = interaction.user.id;
+		const pingOption = interaction.options.getString('mention');
 		if (patTarget === clientId) {
 			const patEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
@@ -35,8 +42,15 @@ module.exports = {
 				.setColor('#8F3BCB')
 				.setDescription(`<@${patSender}> pats <@${patTarget}>!`)
 				.setImage(`${chosenPat}`);
+			if (pingOption == 'yes') {
+				await interaction.reply(`<@${patSender}> pats <@${patTarget}>!`);
+				await interaction.editReply('­  ­­');
+				await interaction.editReply({ embeds: [patEmbed] });
+			}
+			else {
+				await interaction.reply({ embeds: [patEmbed] });
+			}
 
-			await interaction.reply({ embeds: [patEmbed] });
 		}
 	},
 };

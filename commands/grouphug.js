@@ -6,8 +6,13 @@ module.exports = {
 		.setName('grouphug')
 		.setDescription('Hug two people at once!')
 		.addUserOption(option => option.setName('target') .setDescription('Who to hug') .setRequired(true))
-		.addUserOption(option => option.setName('target2') .setDescription('Who to also hug') .setRequired(true)),
-
+		.addUserOption(option => option.setName('target2') .setDescription('Who to also hug') .setRequired(true))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the users?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 	async execute(interaction) {
 		// Choose random gif to add to reply.
 		const hugFiles = [
@@ -22,10 +27,19 @@ module.exports = {
 		const hugTarget = interaction.options.getUser('target') + '';
 		const hugTarget2 = interaction.options.getUser('target2') + '';
 		const hugSender = interaction.user.id;
+		const pingOption = interaction.options.getString('mention');
+
 		const hugEmbed = new MessageEmbed()
 			.setColor('#8F3BCB')
 			.setDescription(`<@${hugSender}> hugs <@${hugTarget}> *and* <@${hugTarget2}>!`)
 			.setImage(`${chosenHug}`);
-		await interaction.reply({ embeds: [hugEmbed] });
+		if (pingOption == 'yes') {
+			await interaction.reply(`<@${hugSender}> hugs <@${hugTarget}> *and* <@${hugTarget2}>!`);
+			await interaction.editReply('­  ­­');
+			await interaction.editReply({ embeds: [hugEmbed] });
+		}
+		else {
+			await interaction.reply({ embeds: [hugEmbed] });
+		}
 	},
 };

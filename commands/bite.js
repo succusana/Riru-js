@@ -6,7 +6,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('bite')
 		.setDescription('Bite someone!')
-		.addUserOption(option => option.setName('target') .setDescription('Who to bite') .setRequired(true)),
+		.addUserOption(option => option.setName('target') .setDescription('Who to bite') .setRequired(true))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the user?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -22,6 +28,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const biteTarget = interaction.options.getUser('target') + '';
 		const biteSender = interaction.user.id;
+		const pingOption = interaction.options.getString('mention');
 		if (biteTarget === clientId) {
 			const biteEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
@@ -34,8 +41,14 @@ module.exports = {
 				.setColor('#8F3BCB')
 				.setDescription(`<@${biteSender}> bites <@${biteTarget}>!`)
 				.setImage(`${chosenBite}`);
-
-			await interaction.reply({ embeds: [biteEmbed] });
+			if (pingOption == 'yes') {
+				await interaction.reply(`<@${biteSender}> bites <@${biteTarget}>!`);
+				await interaction.editReply('­  ­­');
+				await interaction.editReply({ embeds: [biteEmbed] });
+			}
+			else {
+				await interaction.reply({ embeds: [biteEmbed] });
+			}
 		}
 	},
 };

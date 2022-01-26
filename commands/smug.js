@@ -6,7 +6,13 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('smug')
 		.setDescription('Get smug!')
-		.addUserOption(option => option.setName('target') .setDescription('Who to get smug at') .setRequired(false)),
+		.addUserOption(option => option.setName('target') .setDescription('Who to get smug at') .setRequired(false))
+		.addStringOption(option =>
+			option.setName('mention')
+				.setDescription('Ping the user?')
+				.setRequired(false)
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -19,6 +25,7 @@ module.exports = {
 		];
 		const chosenSmug = smugFiles[Math.floor(Math.random() * smugFiles.length)] ;
 		const selfSmug = 'https://cdn.discordapp.com/attachments/926208444166459483/926209889192267827/unknown.gif';
+		const pingOption = interaction.options.getString('mention');
 		// Preparing target and sender for message.
 		const smugSender = interaction.user.id;
 		if (interaction.options.getUser('target') === null) {
@@ -45,8 +52,14 @@ module.exports = {
 					.setColor('#8F3BCB')
 					.setDescription(`<@${smugSender}> smugs at <@${smugTarget}>!`)
 					.setImage(`${chosenSmug}`);
-
-				await interaction.reply({ embeds: [smugEmbed] });
+				if (pingOption == 'yes') {
+					await interaction.reply(`<@${smugSender}> smugs at <@${smugTarget}>!`);
+					await interaction.editReply('­  ­­');
+					await interaction.editReply({ embeds: [smugEmbed] });
+				}
+				else {
+					await interaction.reply({ embeds: [smugEmbed] });
+				}
 			}
 		}
 	},
