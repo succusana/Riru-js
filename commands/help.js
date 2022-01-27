@@ -43,6 +43,7 @@ module.exports = {
 					{ name: '/invite', value: 'Invite Riru to your server!' },
 					{ name: '/hello', value: 'Say Hi to Riru!' },
 					{ name: '/say', value: 'Make Riru say something!' },
+					{ name: '/8ball', value: 'Ask Riru\'s magic 8 ball a question!' },
 				);
 			await interaction.reply({ embeds: [helpEmbed] });
 		}
