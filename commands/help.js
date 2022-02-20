@@ -26,6 +26,7 @@ module.exports = {
 					{ name: '/grouphug', value: 'Hug two people at once!' },
 					{ name: '/hug', value: 'Hug someone!' },
 					{ name: '/kiss', value: 'Kiss someone!' },
+					{ name: '/lick', value: 'Lick someone!' },
 					{ name: '/makeout', value: 'Kiss someone, but with more *passion.*' },
 					{ name: '/pat', value: 'Pat someone!' },
 					{ name: '/pounce', value: 'Pounce on someone!' },
