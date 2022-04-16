@@ -21,6 +21,7 @@ module.exports = {
 			'https://cdn.discordapp.com/attachments/924604377103208510/924605010610888794/200.gif',
 			'https://cdn.discordapp.com/attachments/924604377103208510/924606823946919986/unknown_2.gif',
 			'https://cdn.discordapp.com/attachments/924604377103208510/924606824248926228/unknown_1.gif',
+			'https://cdn.discordapp.com/attachments/924604377103208510/964935925543084112/kiss-making-out.gif',
 		];
 		const chosenMakeO = makeoFiles[Math.floor(Math.random() * makeoFiles.length)] ;
 		const selfMakeO = 'https://cdn.discordapp.com/attachments/924604377103208510/924607998649851934/unknown_1.gif';

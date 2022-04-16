@@ -21,6 +21,8 @@ module.exports = {
 			'https://cdn.discordapp.com/attachments/931633984205635695/931634045803180043/unknown_3.gif',
 			'https://cdn.discordapp.com/attachments/931633984205635695/931634046176493728/unknown_2.gif',
 			'https://cdn.discordapp.com/attachments/931633984205635695/931634046834966568/unknown_1.gif',
+			'https://cdn.discordapp.com/attachments/931633984205635695/964936917546332260/surprise-hugs-hug.gif',
+			'https://cdn.discordapp.com/attachments/931633984205635695/964936917978333244/animes-anime.gif',
 		];
 		const chosenPounce = pounceFiles[Math.floor(Math.random() * pounceFiles.length)] ;
 		// Preparing target and sender for message.
