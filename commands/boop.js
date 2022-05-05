@@ -29,6 +29,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const boopTarget = interaction.options.getUser('target') + '';
 		const boopSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
 		if (boopTarget === clientId) {
@@ -41,7 +42,7 @@ module.exports = {
 		}
 		else {
 			const boopEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${boopSender}> boops <@${boopTarget}>!`)
 				.setImage(`${chosenBoop}`);
 			if (pingOption == 'yes') {

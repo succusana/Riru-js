@@ -25,12 +25,13 @@ module.exports = {
 		];
 		const chosenSmug = smugFiles[Math.floor(Math.random() * smugFiles.length)] ;
 		const selfSmug = 'https://cdn.discordapp.com/attachments/926208444166459483/926209889192267827/unknown.gif';
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 		// Preparing target and sender for message.
 		const smugSender = interaction.user.id;
 		if (interaction.options.getUser('target') === null) {
 			const smugEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${smugSender}> gets smug!`)
 				.setImage(`${chosenSmug}`);
 
@@ -49,7 +50,7 @@ module.exports = {
 			}
 			else {
 				const smugEmbed = new MessageEmbed()
-					.setColor('#8F3BCB')
+					.setColor(`${roleColor}`)
 					.setDescription(`<@${smugSender}> smugs at <@${smugTarget}>!`)
 					.setImage(`${chosenSmug}`);
 				if (pingOption == 'yes') {

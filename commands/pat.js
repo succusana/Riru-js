@@ -28,6 +28,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const patTarget = interaction.options.getUser('target') + '';
 		const patSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 		if (patTarget === clientId) {
 			const patEmbed = new MessageEmbed()
@@ -39,7 +40,7 @@ module.exports = {
 		}
 		else {
 			const patEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${patSender}> pats <@${patTarget}>!`)
 				.setImage(`${chosenPat}`);
 			if (pingOption == 'yes') {

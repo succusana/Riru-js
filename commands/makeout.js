@@ -28,6 +28,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const makeoTarget = interaction.options.getUser('target') + '';
 		const makeoSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
 		if (makeoTarget === clientId) {
@@ -40,7 +41,7 @@ module.exports = {
 		}
 		else {
 			const makeoEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${makeoSender}> makes out with <@${makeoTarget}>...? Lewd!`)
 				.setImage(`${chosenMakeO}`);
 			if (pingOption == 'yes') {

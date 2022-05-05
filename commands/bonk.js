@@ -28,6 +28,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const bonkTarget = interaction.options.getUser('target') + '';
 		const bonkSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
 		if (bonkTarget === clientId) {
@@ -40,7 +41,7 @@ module.exports = {
 		}
 		else {
 			const bonkEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${bonkSender}> bonks <@${bonkTarget}>!`)
 				.setImage(`${chosenBonk}`);
 			if (pingOption == 'yes') {

@@ -24,13 +24,14 @@ module.exports = {
 		];
 		const chosenPout = poutFiles[Math.floor(Math.random() * poutFiles.length)] ;
 		const selfPout = 'https://cdn.discordapp.com/attachments/926186290163093594/926186391329714226/unknown_4.gif';
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
 		// Preparing target and sender for message.
 		const poutSender = interaction.user.id;
 		if (interaction.options.getUser('target') === null) {
 			const poutEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${poutSender}> pouts!`)
 				.setImage(`${chosenPout}`);
 

@@ -27,6 +27,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const kissTarget = interaction.options.getUser('target') + '';
 		const kissSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
 		if (kissTarget === clientId) {
@@ -39,7 +40,7 @@ module.exports = {
 		}
 		else {
 			const kissEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${kissSender}> kisses <@${kissTarget}>!`)
 				.setImage(`${chosenKiss}`);
 			if (pingOption == 'yes') {

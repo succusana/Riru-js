@@ -28,6 +28,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const lickTarget = interaction.options.getUser('target') + '';
 		const lickSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		// Mentioning target if requested.
 		const pingOption = interaction.options.getString('mention');
 
@@ -42,7 +43,7 @@ module.exports = {
 		}
 		else {
 			const lickEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${lickSender}> licks <@${lickTarget}>!`)
 				.setImage(`${chosenLick}`);
 			if (pingOption == 'yes') {

@@ -27,10 +27,11 @@ module.exports = {
 		const hugTarget = interaction.options.getUser('target') + '';
 		const hugTarget2 = interaction.options.getUser('target2') + '';
 		const hugSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
 		const hugEmbed = new MessageEmbed()
-			.setColor('#8F3BCB')
+			.setColor(`${roleColor}`)
 			.setDescription(`<@${hugSender}> hugs <@${hugTarget}> *and* <@${hugTarget2}>!`)
 			.setImage(`${chosenHug}`);
 		if (pingOption == 'yes') {

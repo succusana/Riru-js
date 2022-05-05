@@ -28,6 +28,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const hugTarget = interaction.options.getUser('target') + '';
 		const hugSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		// Mentioning target if requested.
 		const pingOption = interaction.options.getString('mention');
 
@@ -42,7 +43,7 @@ module.exports = {
 		}
 		else {
 			const hugEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${hugSender}> hugs <@${hugTarget}>!`)
 				.setImage(`${chosenHug}`);
 			if (pingOption == 'yes') {

@@ -28,6 +28,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const biteTarget = interaction.options.getUser('target') + '';
 		const biteSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 		if (biteTarget === clientId) {
 			const biteEmbed = new MessageEmbed()
@@ -38,7 +39,7 @@ module.exports = {
 		}
 		else {
 			const biteEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${biteSender}> bites <@${biteTarget}>!`)
 				.setImage(`${chosenBite}`);
 			if (pingOption == 'yes') {

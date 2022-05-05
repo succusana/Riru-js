@@ -28,6 +28,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const pounceTarget = interaction.options.getUser('target') + '';
 		const pounceSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
 		if (pounceTarget === clientId) {
@@ -40,7 +41,7 @@ module.exports = {
 		}
 		else {
 			const pounceEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${pounceSender}> pounces on <@${pounceTarget}>!`)
 				.setImage(`${chosenPounce}`);
 			if (pingOption == 'yes') {

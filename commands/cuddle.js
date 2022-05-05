@@ -28,6 +28,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const cuddleTarget = interaction.options.getUser('target') + '';
 		const cuddleSender = interaction.user.id;
+		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
 		if (cuddleTarget === clientId) {
@@ -40,7 +41,7 @@ module.exports = {
 		}
 		else {
 			const cuddleEmbed = new MessageEmbed()
-				.setColor('#8F3BCB')
+				.setColor(`${roleColor}`)
 				.setDescription(`<@${cuddleSender}> cuddles <@${cuddleTarget}>!`)
 				.setImage(`${chosenCuddle}`);
 			if (pingOption == 'yes') {
