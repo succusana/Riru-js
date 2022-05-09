@@ -17,7 +17,7 @@ module.exports = {
 	async execute(interaction) {
 		// Choose random gif to add to reply.
 		const makeoFiles = [
-			'https://cdn.discordapp.com/attachments/924604377103208510/924605010258575360/tumblr_n8tnsfbJik1rrr564o2_r1_500.gif',
+			'https://cdn.discordapp.com/attachments/924604377103208510/973153658646716466/girl-kiss.gif',
 			'https://cdn.discordapp.com/attachments/924604377103208510/924605010610888794/200.gif',
 			'https://cdn.discordapp.com/attachments/924604377103208510/924606823946919986/unknown_2.gif',
 			'https://cdn.discordapp.com/attachments/924604377103208510/924606824248926228/unknown_1.gif',
