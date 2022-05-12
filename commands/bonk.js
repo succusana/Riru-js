@@ -24,7 +24,6 @@ module.exports = {
 			'https://cdn.discordapp.com/attachments/930527017793888257/930527108315353148/unknown_2.gif',
 		];
 		const chosenBonk = bonkFiles[Math.floor(Math.random() * bonkFiles.length)] ;
-		const selfBonk = 'https://cdn.discordapp.com/attachments/930527017793888257/930527108885803088/unknown_1.gif';
 		// Preparing target and sender for message.
 		const bonkTarget = interaction.options.getUser('target') + '';
 		const bonkSender = interaction.user.id;
@@ -32,12 +31,26 @@ module.exports = {
 		const pingOption = interaction.options.getString('mention');
 
 		if (bonkTarget === clientId) {
-			const bonkEmbed = new MessageEmbed()
-				.setColor('#FF0000')
-				.setTitle('You attempt to bonk Riru, but-')
-				.setDescription('*Counter!*\n***虚空陣奥義 悪滅!***')
-				.setImage(`${selfBonk}`);
-			await interaction.reply({ embeds: [bonkEmbed] });
+			const selfBonkResponse = Math.floor(Math.random() * 1);
+			if (selfBonkResponse === 1) {
+				const bonkEmbed = new MessageEmbed()
+					.setColor('#FF0000')
+					.setTitle('You attempt to bonk Riru, but-')
+					.setDescription('*Counter!*\n***虚空陣奥義 悪滅!***')
+					.setImage('https://cdn.discordapp.com/attachments/930527017793888257/930527108885803088/unknown_1.gif');
+				await interaction.reply({ embeds: [bonkEmbed] });
+				return;
+			}
+			else {
+				const bonkEmbed = new MessageEmbed()
+					.setColor('#FF0000')
+					.setTitle('You attempt to bonk Riru, but-')
+					.setDescription('***TECH BONUS***\n*Let\'s go Justin!*')
+					.setImage('https://cdn.discordapp.com/attachments/930527017793888257/974352700890308618/ezgif.com-gif-maker2.gif');
+				await interaction.reply({ embeds: [bonkEmbed] });
+				return;
+			}
+
 		}
 		else {
 			const bonkEmbed = new MessageEmbed()
