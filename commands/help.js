@@ -19,12 +19,13 @@ module.exports = {
 				.setColor('#90ee90')
 				// This isn't a good idea, and should probably be dynamically generated.
 				.addFields(
-					{ name: '/boop', value: 'Boop somebody!' },
 					{ name: '/bite', value: 'Bite someone!' },
+					{ name: '/boop', value: 'Boop somebody!' },
 					{ name: '/bonk', value: 'Bonk somebody!' },
 					{ name: '/cuddle', value: 'Cuddle someone!' },
 					{ name: '/grouphug', value: 'Hug two people at once!' },
 					{ name: '/hug', value: 'Hug someone!' },
+					{ name: '/kill', value: 'Kill someone! ...Probably.' },
 					{ name: '/kiss', value: 'Kiss someone!' },
 					{ name: '/lick', value: 'Lick someone!' },
 					{ name: '/makeout', value: 'Kiss someone, but with more *passion.*' },
@@ -43,7 +44,7 @@ module.exports = {
 					{ name: '/about', value: 'Tells you about Riru.' },
 					{ name: '/invite', value: 'Invite Riru to your server!' },
 					{ name: '/hello', value: 'Say Hi to Riru!' },
-					{ name: '/say', value: 'Make Riru say something!' },
+					{ name: '/say', value: 'Make Riru say something! [Owner(s) only.]' },
 					{ name: '/8ball', value: 'Ask Riru\'s magic 8 ball a question!' },
 				);
 			await interaction.reply({ embeds: [helpEmbed] });
