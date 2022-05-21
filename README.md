@@ -1,6 +1,6 @@
 # Riru!
 ![](https://cdn.discordapp.com/attachments/924613221627854909/930915390639444018/riru.png)  
-A Discord interaction bot/familiar/daughter, written using discord.js and designed with interaction commands as her main focus.  
+A Discord interaction bot/familiar/daughter, written using discord.js and designed with interaction commands (hugs, kisses etc.) as her main focus.  
 
 Profile picture by [yukikasa.](https://www.pixiv.net/en/users/260958)
 
@@ -8,7 +8,7 @@ Profile picture by [yukikasa.](https://www.pixiv.net/en/users/260958)
 
 ## Requirements:
 - The latest version of NodeJS
-- The latest version of discord.js `npm install discord.js@latest`
+- The latest version of discord.js: `npm install discord.js@latest`
 - `application.commands` scope enabled in your Discord Developer Portal for your bot.
 - A Linux host system (because there's no way I'm testing a development environment on Windows).
 
@@ -35,5 +35,7 @@ Riru relies on a few key variables, stored in config.json. These variables are *
 To add new commands, make a new file in the commands/ subfolder. Make sure to add documentation to the /help command and to run `deploy-commands-global.js` to update on Discord's end.
 
 Riru is developed, hosted and designed on Linux hosts exclusively. If everything breaks on Windows, use WSL or just give Linux a try already.
+
+All of Riru's output goes to stdin by default. If you wish to make log files, pipe the output of `node index.js` to a file.
 
 ~~Riru is a good girl, no making her do bad things.~~
