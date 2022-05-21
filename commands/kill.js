@@ -18,6 +18,8 @@ module.exports = {
 		const killFiles = [
 			'https://cdn.discordapp.com/attachments/977284307301306409/977284353270890506/aqua-cry-cute-aqua.gif',
 			'https://cdn.discordapp.com/attachments/977284307301306409/977284353514168410/anime-cry.gif',
+			'https://cdn.discordapp.com/attachments/977284307301306409/977529226817310810/1.gif',
+			'https://cdn.discordapp.com/attachments/977284307301306409/977530616012763177/sad-cry.gif',
 		];
 		const chosenKill = killFiles[Math.floor(Math.random() * killFiles.length)] ;
 		// Preparing target and sender for message.
