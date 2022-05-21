@@ -36,4 +36,4 @@ To add new commands, make a new file in the commands/ subfolder. Make sure to ad
 
 Riru is developed, hosted and designed on Linux hosts exclusively. If everything breaks on Windows, use WSL or just give Linux a try already.
 
-~~Riru is a good girl, no making her do bad things.
+~~Riru is a good girl, no making her do bad things.~~
