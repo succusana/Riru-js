@@ -12,7 +12,7 @@ Profile picture by [yukikasa.](https://www.pixiv.net/en/users/260958)
 - `application.commands` scope enabled in your Discord Developer Portal for your bot.
 - A Linux host system (because there's no way I'm testing a development environment on Windows).
 
-## Installation: 
+## Installation:
 1. Download/Clone the repository.
 2. Open the Riru-js directory in a terminal.
 3. Run `npm init` to install NPM dependencies.
@@ -26,9 +26,9 @@ Riru relies on a few key variables, stored in config.json. These variables are *
 
 - `clientId`: The user ID of your bot.
 - `guildId`: The ID of the main server your bot is tested in.
-- `ownerid`: The ID of the owner of the bot. Used for permission checks.
-- `alterid`: The ID of an additional person who has permissions to use owner commands. Think of this as a "co-owner" position.
-- `token`: Your bot's token. 
+- `ownerId`: The ID of the owner of the bot. Used for permission checks.
+- `alterId`: The ID of an additional person who has permissions to use owner commands. Think of this as a "co-owner" position.
+- `token`: Your bot's token.
 
 ## Development:
 
