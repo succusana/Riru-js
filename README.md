@@ -15,7 +15,7 @@ Profile picture by [yukikasa.](https://www.pixiv.net/en/users/260958)
 ## Installation:
 1. Download/Clone the repository.
 2. Open the Riru-js directory in a terminal.
-3. Run `npm init` to install NPM dependencies.
+3. Run `npm install` to install NPM dependencies.
 4. Create config.json in the main directory and populate it as described below.
 5. Run `node deploy-commands-global.js` to inform Discord of your commands.
 6. Run `node index.js` to run the bot.
@@ -32,7 +32,7 @@ Riru relies on a few key variables, stored in config.json. These variables are *
 
 ## Development:
 
-To add new commands, make a new file in the commands/ subfolder. Make sure to add documentation to the /help command and to run `deploy-commands-global.js` to update on Discord's end.
+To add new commands, make a new file in the commands/ subfolder. `templatecommand.js` is provided (in the root directory) as an example. Make sure to add documentation to the /help command and to run `deploy-commands-global.js` to update on Discord's end.
 
 Riru is developed, hosted and designed on Linux hosts exclusively. If everything breaks on Windows, use WSL or just give Linux a try already.
 
