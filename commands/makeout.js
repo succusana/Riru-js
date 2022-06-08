@@ -16,41 +16,41 @@ module.exports = {
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
-		const makeoFiles = [
+		const interFiles = [
 			'https://cdn.discordapp.com/attachments/924604377103208510/973153658646716466/girl-kiss.gif',
 			'https://cdn.discordapp.com/attachments/924604377103208510/924605010610888794/200.gif',
 			'https://cdn.discordapp.com/attachments/924604377103208510/924606823946919986/unknown_2.gif',
 			'https://cdn.discordapp.com/attachments/924604377103208510/924606824248926228/unknown_1.gif',
 			'https://cdn.discordapp.com/attachments/924604377103208510/964935925543084112/kiss-making-out.gif',
 		];
-		const chosenMakeO = makeoFiles[Math.floor(Math.random() * makeoFiles.length)] ;
-		const selfMakeO = 'https://cdn.discordapp.com/attachments/924604377103208510/924607998649851934/unknown_1.gif';
+		const chosenInter = interFiles[Math.floor(Math.random() * interFiles.length)] ;
+		const selfInter = 'https://cdn.discordapp.com/attachments/924604377103208510/924607998649851934/unknown_1.gif';
 		// Preparing target and sender for message.
-		const makeoTarget = interaction.options.getUser('target') + '';
-		const makeoSender = interaction.user.id;
+		const interTarget = interaction.options.getUser('target') + '';
+		const interSender = interaction.user.id;
 		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
-		if (makeoTarget === clientId) {
-			const makeoEmbed = new MessageEmbed()
+		if (interTarget === clientId) {
+			const interEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
 				.setTitle('You attempt to make out with Riru, but...')
 				.setDescription('Wait, you expect me to do *that?*')
-				.setImage(`${selfMakeO}`);
-			await interaction.reply({ embeds: [makeoEmbed] });
+				.setImage(`${selfInter}`);
+			await interaction.reply({ embeds: [interEmbed] });
 		}
 		else {
-			const makeoEmbed = new MessageEmbed()
+			const interEmbed = new MessageEmbed()
 				.setColor(`${roleColor}`)
-				.setDescription(`<@${makeoSender}> makes out with <@${makeoTarget}>...? Lewd!`)
-				.setImage(`${chosenMakeO}`);
+				.setDescription(`<@${interSender}> makes out with <@${interTarget}>...? Lewd!`)
+				.setImage(`${chosenInter}`);
 			if (pingOption == 'yes') {
-				await interaction.reply(`<@${makeoSender}> makes out with <@${makeoTarget}>...? Lewd!`);
+				await interaction.reply(`<@${interSender}> makes out with <@${interTarget}>...? Lewd!`);
 				await interaction.editReply('­  ­­');
-				await interaction.editReply({ embeds: [makeoEmbed] });
+				await interaction.editReply({ embeds: [interEmbed] });
 			}
 			else {
-				await interaction.reply({ embeds: [makeoEmbed] });
+				await interaction.reply({ embeds: [interEmbed] });
 			}
 
 		}

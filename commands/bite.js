@@ -16,39 +16,39 @@ module.exports = {
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
-		const biteFiles = [
+		const interFiles = [
 			'https://cdn.discordapp.com/attachments/929832960436371496/930188461871349800/unknown.gif',
 			'https://cdn.discordapp.com/attachments/929832960436371496/930188462156550186/unknown_copy_1.gif',
 			'https://cdn.discordapp.com/attachments/929832960436371496/930188462429175808/unknown_2.gif',
 			'https://cdn.discordapp.com/attachments/929832960436371496/930188462739587154/unknown_1.gif',
 			'https://cdn.discordapp.com/attachments/929832960436371496/930188463003807764/unknown_1_copy_1.gif',
 		];
-		const chosenBite = biteFiles[Math.floor(Math.random() * biteFiles.length)] ;
-		const selfBite = 'https://cdn.discordapp.com/attachments/929832960436371496/930189526809317376/unknown.gif';
+		const chosenInter = interFiles[Math.floor(Math.random() * interFiles.length)] ;
+		const selfInter = 'https://cdn.discordapp.com/attachments/929832960436371496/930189526809317376/unknown.gif';
 		// Preparing target and sender for message.
-		const biteTarget = interaction.options.getUser('target') + '';
-		const biteSender = interaction.user.id;
+		const interTarget = interaction.options.getUser('target') + '';
+		const interSender = interaction.user.id;
 		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
-		if (biteTarget === clientId) {
-			const biteEmbed = new MessageEmbed()
+		if (interTarget === clientId) {
+			const interEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
 				.setDescription('*Riru flees before you get to bite her!*')
-				.setImage(`${selfBite}`);
-			await interaction.reply({ embeds: [biteEmbed] });
+				.setImage(`${selfInter}`);
+			await interaction.reply({ embeds: [interEmbed] });
 		}
 		else {
-			const biteEmbed = new MessageEmbed()
+			const interEmbed = new MessageEmbed()
 				.setColor(`${roleColor}`)
-				.setDescription(`<@${biteSender}> bites <@${biteTarget}>!`)
-				.setImage(`${chosenBite}`);
+				.setDescription(`<@${interSender}> bites <@${interTarget}>!`)
+				.setImage(`${chosenInter}`);
 			if (pingOption == 'yes') {
-				await interaction.reply(`<@${biteSender}> bites <@${biteTarget}>!`);
+				await interaction.reply(`<@${interSender}> bites <@${interTarget}>!`);
 				await interaction.editReply('­  ­­');
-				await interaction.editReply({ embeds: [biteEmbed] });
+				await interaction.editReply({ embeds: [interEmbed] });
 			}
 			else {
-				await interaction.reply({ embeds: [biteEmbed] });
+				await interaction.reply({ embeds: [interEmbed] });
 			}
 		}
 	},

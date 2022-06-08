@@ -16,43 +16,43 @@ module.exports = {
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
-		const hugFiles = [
+		const interFiles = [
 			'https://cdn.discordapp.com/attachments/924373854044946433/924373913511813150/hug1.gif',
 			'https://cdn.discordapp.com/attachments/924373854044946433/924373913016893440/hug2.gif',
 			'https://cdn.discordapp.com/attachments/924373854044946433/924373912375148604/hug3.gif',
 			'https://cdn.discordapp.com/attachments/924373854044946433/924373911800533112/hug5.gif',
 			'https://cdn.discordapp.com/attachments/924373854044946433/924373911439814726/hug6.gif',
 		];
-		const chosenHug = hugFiles[Math.floor(Math.random() * hugFiles.length)] ;
-		const selfHug = 'https://cdn.discordapp.com/attachments/924373854044946433/924378713632698368/hugself.gif';
+		const chosenInter = interFiles[Math.floor(Math.random() * interFiles.length)] ;
+		const selfInter = 'https://cdn.discordapp.com/attachments/924373854044946433/924378713632698368/hugself.gif';
 		// Preparing target and sender for message.
-		const hugTarget = interaction.options.getUser('target') + '';
-		const hugSender = interaction.user.id;
+		const interTarget = interaction.options.getUser('target') + '';
+		const interSender = interaction.user.id;
 		const roleColor = interaction.member.displayHexColor;
 		// Mentioning target if requested.
 		const pingOption = interaction.options.getString('mention');
 
 		// Preparing and sending embed.
-		if (hugTarget === clientId) {
-			const hugEmbed = new MessageEmbed()
+		if (interTarget === clientId) {
+			const interEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
 				.setTitle('Riru gets hugged!')
 				.setDescription('Wait-!\n*Riru accepts the hug, blushing a fair bit but hugging back gently.*')
-				.setImage(`${selfHug}`);
-			await interaction.reply({ embeds: [hugEmbed] });
+				.setImage(`${selfInter}`);
+			await interaction.reply({ embeds: [interEmbed] });
 		}
 		else {
-			const hugEmbed = new MessageEmbed()
+			const interEmbed = new MessageEmbed()
 				.setColor(`${roleColor}`)
-				.setDescription(`<@${hugSender}> hugs <@${hugTarget}>!`)
-				.setImage(`${chosenHug}`);
+				.setDescription(`<@${interSender}> hugs <@${interTarget}>!`)
+				.setImage(`${chosenInter}`);
 			if (pingOption == 'yes') {
-				await interaction.reply(`<@${hugSender}> hugs <@${hugTarget}>!`);
+				await interaction.reply(`<@${interSender}> hugs <@${interTarget}>!`);
 				await interaction.editReply('­  ­­');
-				await interaction.editReply({ embeds: [hugEmbed] });
+				await interaction.editReply({ embeds: [interEmbed] });
 			}
 			else {
-				await interaction.reply({ embeds: [hugEmbed] });
+				await interaction.reply({ embeds: [interEmbed] });
 			}
 
 		}

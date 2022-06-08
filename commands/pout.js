@@ -16,50 +16,50 @@ module.exports = {
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
-		const poutFiles = [
+		const interFiles = [
 			'https://cdn.discordapp.com/attachments/926186290163093594/926186390897713182/unknown.gif',
 			'https://cdn.discordapp.com/attachments/926186290163093594/926186391744946237/unknown_3.gif',
 			'https://cdn.discordapp.com/attachments/926186290163093594/926186392592216124/unknown_2.gif',
 			'https://cdn.discordapp.com/attachments/926186290163093594/926186393338806322/unknown_1.gif',
 		];
-		const chosenPout = poutFiles[Math.floor(Math.random() * poutFiles.length)] ;
-		const selfPout = 'https://cdn.discordapp.com/attachments/926186290163093594/926186391329714226/unknown_4.gif';
+		const chosenInter = interFiles[Math.floor(Math.random() * interFiles.length)] ;
+		const selfInter = 'https://cdn.discordapp.com/attachments/926186290163093594/926186391329714226/unknown_4.gif';
 		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
 		// Preparing target and sender for message.
-		const poutSender = interaction.user.id;
+		const interSender = interaction.user.id;
 		if (interaction.options.getUser('target') === null) {
-			const poutEmbed = new MessageEmbed()
+			const interEmbed = new MessageEmbed()
 				.setColor(`${roleColor}`)
-				.setDescription(`<@${poutSender}> pouts!`)
-				.setImage(`${chosenPout}`);
+				.setDescription(`<@${interSender}> pouts!`)
+				.setImage(`${chosenInter}`);
 
-			await interaction.reply({ embeds: [poutEmbed] });
+			await interaction.reply({ embeds: [interEmbed] });
 		}
 		else {
-			const poutTarget = interaction.options.getUser('target') + '';
-			if (poutTarget === clientId) {
-				const poutEmbed = new MessageEmbed()
+			const interTarget = interaction.options.getUser('target') + '';
+			if (interTarget === clientId) {
+				const interEmbed = new MessageEmbed()
 					.setColor('#FFC0CB')
 					.setTitle('You pout at Riru!')
 					.setDescription('Wait, what are you pouting at me for? Did I say something?')
-					.setImage(`${selfPout}`);
+					.setImage(`${selfInter}`);
 
-				await interaction.reply({ embeds: [poutEmbed] });
+				await interaction.reply({ embeds: [interEmbed] });
 			}
 			else {
-				const poutEmbed = new MessageEmbed()
+				const interEmbed = new MessageEmbed()
 					.setColor('#8F3BCB')
-					.setDescription(`<@${poutSender}> pouts at <@${poutTarget}>!`)
-					.setImage(`${chosenPout}`);
+					.setDescription(`<@${interSender}> pouts at <@${interTarget}>!`)
+					.setImage(`${chosenInter}`);
 				if (pingOption == 'yes') {
-					await interaction.reply(`<@${poutSender}> pouts at <@${poutTarget}>!`);
+					await interaction.reply(`<@${interSender}> pouts at <@${interTarget}>!`);
 					await interaction.editReply('­  ­­');
-					await interaction.editReply({ embeds: [poutEmbed] });
+					await interaction.editReply({ embeds: [interEmbed] });
 				}
 				else {
-					await interaction.reply({ embeds: [poutEmbed] });
+					await interaction.reply({ embeds: [interEmbed] });
 				}
 			}
 		}

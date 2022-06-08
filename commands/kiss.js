@@ -15,41 +15,41 @@ module.exports = {
 				.addChoice('No', 'no')),
 	async execute(interaction) {
 		// Choose random gif to add to reply.
-		const kissFiles = [
+		const interFiles = [
 			'https://cdn.discordapp.com/attachments/924603816781959218/924603885568548894/unknown.gif',
 			'https://cdn.discordapp.com/attachments/924603816781959218/924603886126374922/unknown_3.gif',
 			'https://cdn.discordapp.com/attachments/924603816781959218/924603886612910100/unknown_2.gif',
 			'https://cdn.discordapp.com/attachments/924603816781959218/924603886881374268/unknown_1.gif',
 			'https://cdn.discordapp.com/attachments/924603816781959218/924603887380484156/KanD.gif',
 		];
-		const chosenKiss = kissFiles[Math.floor(Math.random() * kissFiles.length)] ;
-		const selfKiss = 'https://cdn.discordapp.com/attachments/924603816781959218/924605389650137098/unknown.gif';
+		const chosenInter = interFiles[Math.floor(Math.random() * interFiles.length)] ;
+		const selfInter = 'https://cdn.discordapp.com/attachments/924603816781959218/924605389650137098/unknown.gif';
 		// Preparing target and sender for message.
-		const kissTarget = interaction.options.getUser('target') + '';
-		const kissSender = interaction.user.id;
+		const interTarget = interaction.options.getUser('target') + '';
+		const interSender = interaction.user.id;
 		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
-		if (kissTarget === clientId) {
-			const kissEmbed = new MessageEmbed()
+		if (interTarget === clientId) {
+			const interEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
 				.setTitle('Riru gets kissed!')
 				.setDescription('Mmh~?!')
-				.setImage(`${selfKiss}`);
-			await interaction.reply({ embeds: [kissEmbed] });
+				.setImage(`${selfInter}`);
+			await interaction.reply({ embeds: [interEmbed] });
 		}
 		else {
-			const kissEmbed = new MessageEmbed()
+			const interEmbed = new MessageEmbed()
 				.setColor(`${roleColor}`)
-				.setDescription(`<@${kissSender}> kisses <@${kissTarget}>!`)
-				.setImage(`${chosenKiss}`);
+				.setDescription(`<@${interSender}> kisses <@${interTarget}>!`)
+				.setImage(`${chosenInter}`);
 			if (pingOption == 'yes') {
-				await interaction.reply(`<@${kissSender}> kisses <@${kissTarget}>!`);
+				await interaction.reply(`<@${interSender}> kisses <@${interTarget}>!`);
 				await interaction.editReply('­  ­­');
-				await interaction.editReply({ embeds: [kissEmbed] });
+				await interaction.editReply({ embeds: [interEmbed] });
 			}
 			else {
-				await interaction.reply({ embeds: [kissEmbed] });
+				await interaction.reply({ embeds: [interEmbed] });
 			}
 		}
 	},

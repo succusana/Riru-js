@@ -16,54 +16,54 @@ module.exports = {
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
-		const bonkFiles = [
+		const interFiles = [
 			'https://cdn.discordapp.com/attachments/930527017793888257/930527106604077087/unknown.gif',
 			'https://cdn.discordapp.com/attachments/930527017793888257/930527106956427344/unknown_5.gif',
 			'https://cdn.discordapp.com/attachments/930527017793888257/930527107463905340/unknown_4.gif',
 			'https://cdn.discordapp.com/attachments/930527017793888257/930527107744931880/unknown_3.gif',
 			'https://cdn.discordapp.com/attachments/930527017793888257/930527108315353148/unknown_2.gif',
 		];
-		const chosenBonk = bonkFiles[Math.floor(Math.random() * bonkFiles.length)] ;
+		const chosenInter = interFiles[Math.floor(Math.random() * interFiles.length)] ;
 		// Preparing target and sender for message.
-		const bonkTarget = interaction.options.getUser('target') + '';
-		const bonkSender = interaction.user.id;
+		const interTarget = interaction.options.getUser('target') + '';
+		const interSender = interaction.user.id;
 		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
-		if (bonkTarget === clientId) {
-			const selfBonkResponse = Math.floor(Math.random() * 1);
-			if (selfBonkResponse === 1) {
-				const bonkEmbed = new MessageEmbed()
+		if (interTarget === clientId) {
+			const selfInterResponse = Math.floor(Math.random() * 1);
+			if (selfInterResponse === 1) {
+				const interEmbed = new MessageEmbed()
 					.setColor('#FF0000')
 					.setTitle('You attempt to bonk Riru, but-')
 					.setDescription('*Counter!*\n***虚空陣奥義 悪滅!***')
 					.setImage('https://cdn.discordapp.com/attachments/930527017793888257/930527108885803088/unknown_1.gif');
-				await interaction.reply({ embeds: [bonkEmbed] });
+				await interaction.reply({ embeds: [interEmbed] });
 				return;
 			}
 			else {
-				const bonkEmbed = new MessageEmbed()
+				const interEmbed = new MessageEmbed()
 					.setColor('#FF0000')
 					.setTitle('You attempt to bonk Riru, but-')
 					.setDescription('***TECH BONUS***\n*Let\'s go Justin!*')
 					.setImage('https://cdn.discordapp.com/attachments/930527017793888257/974352700890308618/ezgif.com-gif-maker2.gif');
-				await interaction.reply({ embeds: [bonkEmbed] });
+				await interaction.reply({ embeds: [interEmbed] });
 				return;
 			}
 
 		}
 		else {
-			const bonkEmbed = new MessageEmbed()
+			const interEmbed = new MessageEmbed()
 				.setColor(`${roleColor}`)
-				.setDescription(`<@${bonkSender}> bonks <@${bonkTarget}>!`)
-				.setImage(`${chosenBonk}`);
+				.setDescription(`<@${interSender}> bonks <@${interTarget}>!`)
+				.setImage(`${chosenInter}`);
 			if (pingOption == 'yes') {
-				await interaction.reply(`<@${bonkSender}> bonks <@${bonkTarget}>!`);
+				await interaction.reply(`<@${interSender}> bonks <@${interTarget}>!`);
 				await interaction.editReply('­  ­­');
-				await interaction.editReply({ embeds: [bonkEmbed] });
+				await interaction.editReply({ embeds: [interEmbed] });
 			}
 			else {
-				await interaction.reply({ embeds: [bonkEmbed] });
+				await interaction.reply({ embeds: [interEmbed] });
 			}
 		}
 	},
