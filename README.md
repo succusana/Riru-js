@@ -4,7 +4,7 @@ A Discord interaction bot/familiar/daughter, written using discord.js and design
 
 Profile picture by [yukikasa.](https://www.pixiv.net/en/users/260958)
 
-### Invite Riru to your server [here!](https://discord.com/oauth2/authorize?client_id=923637342219157564&permissions=51200&scope=bot%20applications.commands)
+### Invite Riru to your server [here!](https://discord.com/oauth2/authorize?client_id=986692486300852244&permissions=51200&scope=bot%20applications.commands)
 
 ## Requirements:
 - The latest version of NodeJS
