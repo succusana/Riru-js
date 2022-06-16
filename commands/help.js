@@ -24,6 +24,7 @@ module.exports = {
 					{ name: '/bonk', value: 'Bonk somebody!' },
 					{ name: '/cuddle', value: 'Cuddle someone!' },
 					{ name: '/grouphug', value: 'Hug two people at once!' },
+					{ name: '/handhold', value: 'Hold someone\'s hand!' },
 					{ name: '/hug', value: 'Hug someone!' },
 					{ name: '/kill', value: 'Kill someone! ...Probably.' },
 					{ name: '/kiss', value: 'Kiss someone!' },
@@ -46,6 +47,7 @@ module.exports = {
 					{ name: '/hello', value: 'Say Hi to Riru!' },
 					{ name: '/say', value: 'Make Riru say something! [Owner(s) only.]' },
 					{ name: '/8ball', value: 'Ask Riru\'s magic 8 ball a question!' },
+					{ name: '/coinflip', value: 'Flip a coin!' },
 				);
 			await interaction.reply({ embeds: [helpEmbed] });
 		}
