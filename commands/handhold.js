@@ -37,7 +37,7 @@ module.exports = {
 			const interEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
 				.setTitle('You try to hold Riru\'s hand...')
-				.setDescription('I-I\'m sorry! I don\'t like you that way yet! \n *Seems like she can\'t handle the pressure.')
+				.setDescription('I-I\'m sorry! I don\'t like you that way yet! \n *Seems like she can\'t handle the pressure.*')
 				.setImage(`${selfInter}`);
 			await interaction.reply({ embeds: [interEmbed] });
 		}
