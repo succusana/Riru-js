@@ -31,7 +31,7 @@ module.exports = {
 		const pingOption = interaction.options.getString('mention');
 
 		if (interTarget === clientId) {
-			const selfInterResponse = Math.floor(Math.random() * 1);
+			const selfInterResponse = Math.round(Math.random());
 			if (selfInterResponse === 1) {
 				const interEmbed = new MessageEmbed()
 					.setColor('#FF0000')
