@@ -22,6 +22,7 @@ module.exports = {
 			'https://cdn.discordapp.com/attachments/930528834548273215/930529888975347803/unknown_3.gif',
 			'https://cdn.discordapp.com/attachments/930528834548273215/930529889394753576/unknown_2.gif',
 			'https://cdn.discordapp.com/attachments/930528834548273215/930529889809993748/unknown_1.gif',
+			'https://cdn.discordapp.com/attachments/986692191311261707/988126055430754355/95469193_p8.jpg',
 		];
 		const chosenInter = interFiles[Math.floor(Math.random() * interFiles.length)] ;
 		const selfInter = 'https://cdn.discordapp.com/attachments/930528834548273215/930531895320670258/mp4.gif';
