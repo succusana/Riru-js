@@ -18,7 +18,7 @@ module.exports = {
 		const interEmbed = new MessageEmbed()
 			.setColor('#FFC0CB')
 			.setTitle(`${interSender} flips a coin!`)
-			.setDescription(`*And the result is...* \n ***${coinResult}***!`)
+			.setDescription(`*And the result is...* \n ***${coinResult}!***`)
 			.setImage(`${usedGif}`);
 		await interaction.reply({ embeds: [interEmbed] });
 	},
