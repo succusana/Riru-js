@@ -36,6 +36,6 @@ To add new commands, make a new file in the commands/ subfolder. `templatecomman
 
 Riru is developed, hosted and designed on Linux hosts exclusively. If everything breaks on Windows, use WSL or just give Linux a try already.
 
-All of Riru's output goes to stdin by default. If you wish to make log files, pipe the output of `node index.js` to a file.
+All of Riru's output goes to stdout by default. If you wish to make log files, redirect the output of `node index.js` to a file.
 
 ~~Riru is a good girl, no making her do bad things.~~
