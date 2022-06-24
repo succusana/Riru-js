@@ -1,6 +1,6 @@
 # Riru!
 ![](https://cdn.discordapp.com/attachments/924613221627854909/930915390639444018/riru.png)  
-A Discord interaction bot/familiar/daughter, written using discord.js and designed with interaction commands (hugs, kisses etc.) as her main focus.  
+A Discord interaction bot, written using discord.js and designed with interaction commands (hugs, kisses etc.) as her main focus.  
 
 Profile picture by [yukikasa.](https://www.pixiv.net/en/users/260958)
 
@@ -8,21 +8,21 @@ Profile picture by [yukikasa.](https://www.pixiv.net/en/users/260958)
 
 ## Requirements:
 - The latest version of NodeJS
-- The latest version of discord.js: `npm install discord.js@latest`
+- The latest version of discord.js.
 - `application.commands` scope enabled in your Discord Developer Portal for your bot.
-- A Linux host system (because there's no way I'm testing a development environment on Windows).
+- A Linux host system (because there's no way I'm testing this on Windows).
 
 ## Installation:
 1. Download/Clone the repository.
 2. Open the Riru-js directory in a terminal.
-3. Run `npm install` to install NPM dependencies.
+3. Run `npm install` to install dependencies.
 4. Create config.json in the main directory and populate it as described below.
-5. Run `node deploy-commands-global.js` to inform Discord of your commands.
-6. Run `node index.js` to run the bot.
+5. Run `node deploy-commands-global.js` to register your commands with Discord.
+6. Run `node index.js` to start Riru.
 
 ## Config:
 
-Riru relies on a few key variables, stored in config.json. These variables are **not** to be put in a public repository, so you will have to create them and write these five values yourself.
+Riru relies on a few key variables, stored in config.json. These values are dependent on what your specific setup is, so you will have to populate them yourself.
 
 - `clientId`: The user ID of your bot.
 - `guildId`: The ID of the main server your bot is tested in.
