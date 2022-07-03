@@ -42,10 +42,11 @@ module.exports = {
 				return;
 			}
 			else {
+				const interName = interaction.user.username;
 				const interEmbed = new MessageEmbed()
 					.setColor('#FF0000')
 					.setTitle('You attempt to bonk Riru, but-')
-					.setDescription('***TECH BONUS***\n*Let\'s go Justin!*')
+					.setDescription(`***TECH BONUS***\n*Let's go ${interName}!*`)
 					.setImage('https://cdn.discordapp.com/attachments/930527017793888257/974352700890308618/ezgif.com-gif-maker2.gif');
 				await interaction.reply({ embeds: [interEmbed] });
 				return;
