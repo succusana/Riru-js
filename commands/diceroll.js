@@ -27,7 +27,7 @@ module.exports = {
 
 		const interEmbed = new MessageEmbed()
 			.setColor('#FFC0CB')
-			.setTitle(`${interSender} rolls the dice (from ${interMinVal} to ${interMaxVal}!`)
+			.setTitle(`${interSender} rolls the dice (from ${interMinVal} to ${interMaxVal})!`)
 			.setDescription(`*And the result is...* \n ***${diceResult}!***`)
 			.setImage(`${usedGif}`);
 		await interaction.reply({ embeds: [interEmbed] });
