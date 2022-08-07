@@ -48,6 +48,7 @@ module.exports = {
 					{ name: '/say', value: 'Make Riru say something! [Owner(s) only.]' },
 					{ name: '/8ball', value: 'Ask Riru\'s magic 8 ball a question!' },
 					{ name: '/coinflip', value: 'Flip a coin!' },
+					{ name: '/diceroll', value: 'Roll the dice!' },
 				);
 			await interaction.reply({ embeds: [helpEmbed] });
 		}
