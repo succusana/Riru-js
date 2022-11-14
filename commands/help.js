@@ -20,6 +20,7 @@ module.exports = {
 				// This isn't a good idea, and should probably be dynamically generated.
 				.addFields(
 					{ name: '/bite', value: 'Bite someone!' },
+					{ name: '/blush', value: 'Blush at someone!' },
 					{ name: '/boop', value: 'Boop somebody!' },
 					{ name: '/bonk', value: 'Bonk somebody!' },
 					{ name: '/cuddle', value: 'Cuddle someone!' },
