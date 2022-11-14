@@ -22,6 +22,7 @@ module.exports = {
 			'https://cdn.discordapp.com/attachments/930527017793888257/930527107463905340/unknown_4.gif',
 			'https://cdn.discordapp.com/attachments/930527017793888257/930527107744931880/unknown_3.gif',
 			'https://cdn.discordapp.com/attachments/930527017793888257/930527108315353148/unknown_2.gif',
+			'https://cdn.discordapp.com/attachments/930527017793888257/1041795512224989234/miko-iino-yu-ishigami.gif',
 		];
 		const chosenInter = interFiles[Math.floor(Math.random() * interFiles.length)] ;
 		// Preparing target and sender for message.

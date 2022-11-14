@@ -22,6 +22,9 @@ module.exports = {
 			'https://cdn.discordapp.com/attachments/924380716614164530/924391170489069639/unknown_3.gif',
 			'https://cdn.discordapp.com/attachments/924380716614164530/924391170820431902/unknown_2.gif',
 			'https://cdn.discordapp.com/attachments/924380716614164530/924391171281813514/a.gif',
+			'https://cdn.discordapp.com/attachments/924380716614164530/1041793500427071508/aharen-aharen-san.gif',
+			'https://cdn.discordapp.com/attachments/924380716614164530/1041793500808740904/pat.gif',
+			'https://cdn.discordapp.com/attachments/924380716614164530/1041793501228179496/mai-sakurajima.gif',
 		];
 		const chosenInter = interFiles[Math.floor(Math.random() * interFiles.length)] ;
 		const selfInter = 'https://cdn.discordapp.com/attachments/924380716614164530/924392238262390794/unknown.gif';
