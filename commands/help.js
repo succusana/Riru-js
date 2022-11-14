@@ -53,7 +53,7 @@ module.exports = {
 			await interaction.reply({ embeds: [helpEmbed] });
 		}
 		else {
-			console.log('Help command was sent through without a parameter. WHAT THE FUCK DID YOU DO.');
+			console.log('Help command was sent through without a parameter.');
 		}
 	},
 };
