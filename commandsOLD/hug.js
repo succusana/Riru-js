@@ -1,5 +1,6 @@
+const { SlashCommandBuilder } = require('@discordjs/builders');
 const { clientId } = require('../config.json');
-const { client, EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -10,11 +11,8 @@ module.exports = {
 			option.setName('mention')
 				.setDescription('Ping the user?')
 				.setRequired(false)
-				.addChoices(
-					{ name: 'Yes', value: 'yes' },
-					{ name: 'No', value: 'no' },
-				)
-			),
+				.addChoice('Yes', 'yes')
+				.addChoice('No', 'no')),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -35,30 +33,29 @@ module.exports = {
 		// Preparing target and sender for message.
 		const interTarget = interaction.options.getUser('target') + '';
 		const interSender = interaction.user.id;
-		const selfName = interaction.client.user.username.replace(/[^0-9a-z\s]/gi, '');
 		const roleColor = interaction.member.displayHexColor;
 		// Mentioning target if requested.
 		const pingOption = interaction.options.getString('mention');
 
 		// Preparing and sending embed.
 		if (interTarget === clientId) {
-			const interEmbed = new EmbedBuilder()
+			const interEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
-				.setTitle(`${selfName} gets hugged!`)
-				.setDescription(`Wait-!\n*${selfName} accepts the hug, blushing a fair bit but hugging back gently.*`)
+				.setTitle('Riru gets hugged!')
+				.setDescription('Wait-!\n*Riru accepts the hug, blushing a fair bit but hugging back gently.*')
 				.setImage(`${selfInter}`);
 			await interaction.reply({ embeds: [interEmbed] });
 		}
 		else if (interTarget === interSender) {
-			const interEmbed = new EmbedBuilder()
+			const interEmbed = new MessageEmbed()
 				.setColor('#FFC0CB')
-				.setTitle(`You get a hug from ${selfName} instead!`)
-				.setDescription('If there\'s nobody else to give you a hug, you can just ask...')
+				.setTitle('You get a hug from Riru instead!')
+				.setDescription('If there\'s nobody else to  give you a hug, you can just ask...')
 				.setImage(`${loneInter}`);
 			await interaction.reply({ embeds: [interEmbed] });
 		}
 		else {
-			const interEmbed = new EmbedBuilder()
+			const interEmbed = new MessageEmbed()
 				.setColor(`${roleColor}`)
 				.setDescription(`<@${interSender}> hugs <@${interTarget}>!`)
 				.setImage(`${chosenInter}`);
