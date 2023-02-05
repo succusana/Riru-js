@@ -53,7 +53,7 @@ module.exports = {
 			}
 			else {
 				const interEmbed = new MessageEmbed()
-					.setColor('#8F3BCB')
+					.setColor(`${roleColor}`)
 					.setDescription(`<@${interSender}> pouts at <@${interTarget}>!`)
 					.setImage(`${chosenInter}`);
 				if (pingOption == 'yes') {
