@@ -37,7 +37,7 @@ module.exports = {
 		const pingOption = interaction.options.getString('mention');
 
 		if (interTarget === clientId) {
-			const interEmbed = new MessageEmbed()
+			const interEmbed = new EmbedBuilder()
 				.setColor('#FFC0CB')
 				.setTitle('Riru gets kissed!')
 				.setDescription('Mmh~?!')
@@ -45,7 +45,7 @@ module.exports = {
 			await interaction.reply({ embeds: [interEmbed] });
 		}
 		else {
-			const interEmbed = new MessageEmbed()
+			const interEmbed = new EmbedBuilder()
 				.setColor(`${roleColor}`)
 				.setDescription(`<@${interSender}> kisses <@${interTarget}>!`)
 				.setImage(`${chosenInter}`);
