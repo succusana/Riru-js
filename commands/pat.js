@@ -1,6 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const { clientId } = require('../config.json');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,8 +10,11 @@ module.exports = {
 			option.setName('mention')
 				.setDescription('Ping the user?')
 				.setRequired(false)
-				.addChoice('Yes', 'yes')
-				.addChoice('No', 'no')),
+				.addChoices(
+					{ name: 'Yes', value: 'yes' },
+					{ name: 'No', value: 'no' },
+				)
+			),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -34,7 +36,7 @@ module.exports = {
 		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 		if (interTarget === clientId) {
-			const interEmbed = new MessageEmbed()
+			const interEmbed = new EmbedBuilder()
 				.setColor('#FFC0CB')
 				.setTitle('Riru gets patted!')
 				.setDescription('You\'re patting me instead...?\n*Riru blushes but leans into the pat, letting you rub her soft hair for a bit.*')
@@ -42,7 +44,7 @@ module.exports = {
 			await interaction.reply({ embeds: [interEmbed] });
 		}
 		else {
-			const interEmbed = new MessageEmbed()
+			const interEmbed = new EmbedBuilder()
 				.setColor(`${roleColor}`)
 				.setDescription(`<@${interSender}> pats <@${interTarget}>!`)
 				.setImage(`${chosenInter}`);

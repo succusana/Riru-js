@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder } = require('discord.js');
 const { ownerId, alterId } = require('../config.json');
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
 			return;
 		}
 		else {
-			await interaction.reply({ content: 'You can\'t tell me what to do! (You are not permitted to use this command.)', ephemeral: true });
+			await interaction.reply({ content: 'You can\'t tell me what to do, hmph! (You are not permitted to use this command.)', ephemeral: true });
 		}
 	},
 };

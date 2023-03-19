@@ -1,5 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder, Embed } = require('discord.js');
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('coinflip')
@@ -15,7 +15,7 @@ module.exports = {
 		const interSender = interaction.user.username;
 		const usedGif = 'https://cdn.discordapp.com/attachments/986925962933448704/986926008563286036/anime-wow.gif';
 
-		const interEmbed = new MessageEmbed()
+		const interEmbed = new EmbedBuilder()
 			.setColor('#FFC0CB')
 			.setTitle(`${interSender} flips a coin!`)
 			.setDescription(`*And the result is...* \n ***${coinResult}!***`)

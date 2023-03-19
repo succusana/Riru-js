@@ -1,6 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const { clientId } = require('../config.json');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,8 +10,11 @@ module.exports = {
 			option.setName('mention')
 				.setDescription('Ping the user?')
 				.setRequired(false)
-				.addChoice('Yes', 'yes')
-				.addChoice('No', 'no')),
+				.addChoices(
+					{ name: 'Yes', value: 'yes' },
+					{ name: 'No', value: 'no' },
+				)
+		),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -34,7 +36,7 @@ module.exports = {
 		if (interTarget === clientId) {
 			const selfInterResponse = Math.round(Math.random());
 			if (selfInterResponse === 1) {
-				const interEmbed = new MessageEmbed()
+				const interEmbed = new EmbedBuilder()
 					.setColor('#FF0000')
 					.setTitle('You attempt to bonk Riru, but-')
 					.setDescription('*Counter!*\n***虚空陣奥義 悪滅!***')
@@ -44,7 +46,7 @@ module.exports = {
 			}
 			else {
 				const interName = interaction.user.username;
-				const interEmbed = new MessageEmbed()
+				const interEmbed = new EmbedBuilder()
 					.setColor('#FF0000')
 					.setTitle('You attempt to bonk Riru, but-')
 					.setDescription(`***TECH BONUS***\n*Let's go ${interName}!*`)
@@ -55,7 +57,7 @@ module.exports = {
 
 		}
 		else {
-			const interEmbed = new MessageEmbed()
+			const interEmbed = new EmbedBuilder()
 				.setColor(`${roleColor}`)
 				.setDescription(`<@${interSender}> bonks <@${interTarget}>!`)
 				.setImage(`${chosenInter}`);

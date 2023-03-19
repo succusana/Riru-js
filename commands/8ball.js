@@ -1,5 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+
+const { client, EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -33,7 +33,7 @@ module.exports = {
 			embedColor = '#ff0000';
 		}
 
-		const answerEmbed = new MessageEmbed()
+		const answerEmbed = new EmbedBuilder()
 			.setColor(`${embedColor}`)
 			.addFields(
 				{ name: '**You asked:**', value: `${sentQuestion}` },

@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -8,13 +7,15 @@ module.exports = {
 		.addStringOption(option => option.setName('page')
 			.setDescription('Which help page to view')
 			.setRequired(true)
-			.addChoice('Interaction', 'page_interaction')
-			.addChoice('Misc', 'page_misc')),
-
+			.addChoices(
+				{ name: 'Interaction', value: 'page_interaction' },
+				{ name: 'Misc', value: 'page_misc' },
+			)
+		),
 	async execute(interaction) {
 		const pageChoice = interaction.options.getString('page');
 		if (pageChoice === 'page_interaction') {
-			const helpEmbed = new MessageEmbed()
+			const helpEmbed = new EmbedBuilder()
 				.setTitle('Interaction Commands:')
 				.setColor('#90ee90')
 				// This isn't a good idea, and should probably be dynamically generated.
@@ -39,7 +40,7 @@ module.exports = {
 			await interaction.reply({ embeds: [helpEmbed] });
 		}
 		else if (pageChoice === 'page_misc') {
-			const helpEmbed = new MessageEmbed()
+			const helpEmbed = new EmbedBuilder()
 				.setTitle('Miscellaneous Commands:')
 				.setColor('#90ee90')
 				.addFields(

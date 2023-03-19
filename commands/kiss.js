@@ -1,6 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const { clientId } = require('../config.json');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,8 +10,12 @@ module.exports = {
 			option.setName('mention')
 				.setDescription('Ping the user?')
 				.setRequired(false)
-				.addChoice('Yes', 'yes')
-				.addChoice('No', 'no')),
+				.addChoices(
+					{ name: 'Yes', value: 'yes' },
+					{ name: 'No', value: 'no' },
+				)
+			),
+
 	async execute(interaction) {
 		// Choose random gif to add to reply.
 		const interFiles = [
