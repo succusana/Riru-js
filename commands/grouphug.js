@@ -1,5 +1,4 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -9,10 +8,14 @@ module.exports = {
 		.addUserOption(option => option.setName('target2') .setDescription('Who to also hug') .setRequired(true))
 		.addStringOption(option =>
 			option.setName('mention')
-				.setDescription('Ping the users?')
+				.setDescription('Ping the user?')
 				.setRequired(false)
-				.addChoice('Yes', 'yes')
-				.addChoice('No', 'no')),
+				.addChoices(
+					{ name: 'Yes', value: 'yes' },
+					{ name: 'No', value: 'no' },
+				)
+		),
+
 	async execute(interaction) {
 		// Choose random gif to add to reply.
 		const interFiles = [
@@ -30,7 +33,7 @@ module.exports = {
 		const roleColor = interaction.member.displayHexColor;
 		const pingOption = interaction.options.getString('mention');
 
-		const interEmbed = new MessageEmbed()
+		const interEmbed = new EmbedBuilder()
 			.setColor(`${roleColor}`)
 			.setDescription(`<@${interSender}> hugs <@${interTarget}> *and* <@${interTarget2}>!`)
 			.setImage(`${chosenInter}`);

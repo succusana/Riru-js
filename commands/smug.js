@@ -1,6 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const { clientId } = require('../config.json');
-const { MessageEmbed } = require('discord.js');
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,8 +10,11 @@ module.exports = {
 			option.setName('mention')
 				.setDescription('Ping the user?')
 				.setRequired(false)
-				.addChoice('Yes', 'yes')
-				.addChoice('No', 'no')),
+				.addChoices(
+					{ name: 'Yes', value: 'yes' },
+					{ name: 'No', value: 'no' },
+				)
+			),
 
 	async execute(interaction) {
 		// Choose random gif to add to reply.
@@ -32,7 +34,7 @@ module.exports = {
 		// Preparing target and sender for message.
 		const interSender = interaction.user.id;
 		if (interaction.options.getUser('target') === null) {
-			const interEmbed = new MessageEmbed()
+			const interEmbed = new EmbedBuilder()
 				.setColor(`${roleColor}`)
 				.setDescription(`<@${interSender}> gets smug!`)
 				.setImage(`${chosenInter}`);
@@ -42,7 +44,7 @@ module.exports = {
 		else {
 			const interTarget = interaction.options.getUser('target') + '';
 			if (interTarget === clientId) {
-				const interEmbed = new MessageEmbed()
+				const interEmbed = new EmbedBuilder()
 					.setColor('#FFC0CB')
 					.setTitle('You get smug at Riru!')
 					.setDescription('Don\'t look at me like that! Uuuuu...')
@@ -51,7 +53,7 @@ module.exports = {
 				await interaction.reply({ embeds: [interEmbed] });
 			}
 			else {
-				const interEmbed = new MessageEmbed()
+				const interEmbed = new EmbedBuilder()
 					.setColor(`${roleColor}`)
 					.setDescription(`<@${interSender}> smugs at <@${interTarget}>!`)
 					.setImage(`${chosenInter}`);

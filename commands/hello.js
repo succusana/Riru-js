@@ -1,5 +1,5 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -14,10 +14,12 @@ module.exports = {
 			'https://cdn.discordapp.com/attachments/924631967771795516/985474869032525824/anime-wave.gif?size=4096',
 		];
 		const chosenInter = interFiles[Math.floor(Math.random() * interFiles.length)] ;
-		const interEmbed = new MessageEmbed()
+		const interEmbed = new EmbedBuilder()
 			.setColor(`${roleColor}`)
 			.setDescription(`Hihi <@${target}>!`)
 			.setImage(`${chosenInter}`);
 		await interaction.reply({ embeds: [interEmbed] });
+		console.log(interaction.client.user.username);
+		console.log(interaction.client.user.id)
 	},
 };

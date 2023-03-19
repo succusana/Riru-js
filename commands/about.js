@@ -1,17 +1,18 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
-const { MessageEmbed } = require('discord.js');
+const { client, EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const { ownerId, clientId } = require('../config.json');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('about')
 		.setDescription('About Riru'),
 	async execute(interaction) {
 		// Prepare embed for sending.
-		const aboutEmbed = new MessageEmbed()
+		const selfName = interaction.client.user.username;
+		const selfAvatar = interaction.client.user.displayAvatarURL();
+		const ownerName = `@${ownerId}`
+		const aboutEmbed = new EmbedBuilder()
 			.setColor('#FFC0CB')
-			.setTitle('Riru')
-			.setAuthor('By Sana#2283')
-			// WHY IS THIS HARDCODED. FETCH THE AVATAR AUTOMATICALLY AND PASS IT HERE
-			.setThumbnail('https://cdn.discordapp.com/attachments/924613221627854909/930915390639444018/riru.png')
+			.setTitle(`${selfName}`)
+			.setThumbnail(`${selfAvatar}`)
 			.setURL('https://github.com/succusana/Riru-js')
 			.setDescription('Riru is a Discord bot specialising in interaction commands.');
 

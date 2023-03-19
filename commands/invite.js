@@ -1,4 +1,7 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
+const { SlashCommandBuilder } = require('discord.js');
+
+// This command can probably just be put into /about.
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('invite')
